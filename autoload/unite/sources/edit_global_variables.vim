@@ -18,10 +18,10 @@ endfunction
 
 let s:source = {
 \	"name" : "edit-global-variables",
-\	"default_action" : "input",
+\	"default_action" : "edit",
 \	"max_candidates" : 30,
 \	"action_table" : {
-\		"input" : {
+\		"edit" : {
 \			"is_invalidate_cache" : 1,
 \			"is_selectable" : 0,
 \			"is_quit" : 0
@@ -30,7 +30,7 @@ let s:source = {
 \}
 
 
-function! s:source.action_table.input.func(candidate)
+function! s:source.action_table.edit.func(candidate)
 	let target = a:candidate.action__target
 	let name   = a:candidate.action__name
 	let var    = get(eval(target), name)
